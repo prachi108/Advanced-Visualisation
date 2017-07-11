@@ -1,0 +1,147 @@
+
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE html>
+<html>
+<head>
+<title>Visualisation Lab 2</title>
+<!--mobile apps-->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Visualisation" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!--mobile apps-->
+<!--Custom Theme files-->
+<link href="css/bootstrap.css" type="text/css" rel="stylesheet" media="all">
+<link href="css/style.css" type="text/css" rel="stylesheet" media="all">
+<link rel="stylesheet" href="css/swipebox.css">
+<!--//Custom Theme files-->
+<!--js-->
+<script src="js/jquery-1.11.1.min.js"></script> 
+<!-- //js -->
+<!--web-fonts-->
+<link href='//fonts.googleapis.com/css?family=Overlock:400,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+<link href='//fonts.googleapis.com/css?family=Roboto+Condensed:400,300,300italic,400italic,700,700italic' rel='stylesheet' type='text/css'>
+<!--//web-fonts-->
+<!--start-smooth-scrolling-->
+<script type="text/javascript" src="http://d3js.org/d3.v3.min.js"></script>
+<script type="text/javascript" src="js/move-top.js"></script>
+<script type="text/javascript" src="js/easing.js"></script>
+
+<script src="./js/scatterPlot.js"></script>
+<style>
+<style>
+.axis path,
+.axis line {
+    fill: none;
+    stroke: #eee;
+    shape-rendering: crispEdges;
+}
+ 
+.axis text {
+    font-family: sans-serif;
+    font-size: 11px;
+}
+ 
+.loading {
+    font-family: sans-serif;
+    font-size: 15px;
+}
+ 
+.circle {
+    fill: #222;
+}
+</style>
+<!--//end-smooth-scrolling-->
+</head>
+<body style="background-color: #fff9dd">
+	<!--banner-->
+	<div id="home" class="banner">
+		<div class="banner-info">
+			<div class="container" style="float: left;">
+				<font color='white'>
+					<h1>VISUALISATION LAB 2 </h1>
+				</font>
+			</div>
+		</div>
+	</div>
+	<!--//banner-->
+	<!--top-nav-->
+	<div class="top-nav wow">
+		<div class="container">
+			<div class="navbar-header logo">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+					Menu
+				</button>
+			</div>
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<div class="menu">
+					<ul class="nav navbar">
+						<li><a href="http://localhost:4000/index.html" class="scroll">PCA</a></li>
+						<li><a href="http://localhost:4000/correlation.html" class="scroll">Correlation</a></li>
+						<li><a href="http://localhost:4000/euclidean.html" class="scroll">Euclidean</a></li>
+						<li><a href="http://localhost:4000/elbow.html" class="scroll">Elbow Curve</a></li>
+						<li><a href="http://localhost:4000/screePlot.html" class="scroll">Scree Plot</a></li>
+						<li><a href="http://localhost:4000/loadings.html" class="scroll">PCA Loadings</a></li>
+						<li><a href="http://localhost:4000/matrix.html" class="scroll">Scatterplot Matrix</a></li>
+					</ul>
+					<div class="clearfix"> </div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div id="pca" class="address" style="background-color: #fff9dd" >
+		<div class="container"><br><br>
+		        <h3> Euclidean(<font color="#0c9603">Green:Random</font>;<font color="#d60241">Red:Stratified</font>)</h3>
+				<br>
+				<script type="text/javascript">
+					var w = 940;
+					var h = 300;
+					var pad = 20;
+					var left_pad = 100;
+					
+					var xScale = d3.scale.linear().range([left_pad, w-pad]);
+					var xAxis = d3.svg.axis().scale(xScale).orient("bottom");					
+					var yScale = d3.scale.linear().range([pad, h-pad*2]);
+					var yAxis = d3.svg.axis().scale(yScale).orient("left");       
+
+					var svg = d3.select("#pca")
+								.append("svg")
+								.attr("width", w)
+								.attr("height", h);
+					plot_values('euclidean.csv');
+				</script>
+		</div>
+		<div class="container"style="background-color: #fff9dd">
+			<p align="right"><a href="data:text/csv;charset=utf-8,'+escape(csv)+'" download="college.csv"><img src="./images/csv.png" title="download csv data" height="5%" width="5%"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://vincentarelbundock.github.io/Rdatasets/doc/ISLR/College.html" target="_blank"><img src="./images/metadata.png" title="view metadata" height="5%" width="5%"></a>
+			</p><br>
+		</div>
+	</div>
+	
+	<script type="text/javascript">
+		$(document).ready(function() {
+		
+			var defaults = {
+				containerID: 'toTop', // fading element id
+				containerHoverID: 'toTopHover', // fading element hover id
+				scrollSpeed: 1200,
+				easingType: 'linear' 
+			};
+			
+			$().UItoTop({ easingType: 'easeOutQuart' });
+			
+		});
+	</script>
+	<!--//smooth-scrolling-of-move-up-->
+	<!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="js/bootstrap.js"></script>
+</body>
+</html>
